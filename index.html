@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKYY LINK</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .menu-icon, .search-icon {>
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #000;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      transition: 0.3s;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #sidebar.open {
+      left: 0;
+    }
+
+    #sidebar .close-btn {
+      align-self: flex-end;
+      padding: 10px 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #sidebar a {
+      padding: 15px 25px;
+      display: block;
+      color: white;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    #sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .search-bar {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .search-bar input {
+      padding: 8px;
+      width: 200px;
+    }
+
+    .welcome {
+      text-align: center;
+      background-color: #ccc;
+      padding: 15px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .thumbnail {
+      height: 120px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .card-footer {
+      background-color: #2F539B;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+  
+    .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #2F539B;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.pagination span {
+  font-weight: bold;
+  font-size: 16px;
+}
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <div class="logo">SKYY LINK</div>
+    <div class="search-icon" onclick="toggleSearch()">🔍</div>
+  </header>
+
+<div id="sidebar">
+  <div class="close-btn" onclick="toggleSidebar()">✕</div>
+  <a href="#" onclick="scrollToTop(); toggleSidebar();">Home</a>
+  <a href="#" onclick="toggleSearch(); toggleSidebar();">Telusuri</a>
+  <a href="https://linkkontak.com" target="_blank">Kontak</a>
+  <a href="https://youtube.com/@namamu" target="_blank">YouTube</a>
+</div>
+
+  <div class="search-bar" id="searchBar">
+    <input type="text" id="searchInput" placeholder="Cari konten..." onkeydown="handleKey(event)">
+  </div>
+
+  <div class="welcome">
+    Selamat datang di situs SKYY LINK
+  </div>
+
+  <div class="grid" id="cardContainer">
+  <div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-1.html'" data-title="PART 1">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVI8Mgd2CM4ABLY6KyDICh7_nF0zpV8iGt9LGiUhPGmBGFW8eBUMglMKxCwm6Quit8JGE2_rFCJdRyiHw0lsx6uN7EPzWzS4hMUM2zuw7wbJCHICVBKFjrnuLM2tanp_yKaa7R1Ai2omzKRfILzoIdj9VxPXKqYr_1UYn-PdZGnjaRLCudL8cPnkRATD0/s1920/New%20Project%204%20%5BC4B6F15%5D.png" alt="Thumbnail Anime" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 1</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-2.html'" data-title="PART 2">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuwDh7XfraLeBnpnlZg9J7mc4qWjkBx_Z8rLaqNwLyO7eLNNzXJcJOFp1hH-99QmEbQagbtFq70RVjttteZOAP77sdLH0mkVit_ZCVWzYMWMKckFh0XiVwBurop5wIFI0QdyCg1sRmWSzA3hjA_Txoi5eKTxUVdwCfKShalWdR7R2YPzCGryxec0RsHCw/s1920/New%20Project%204%20%5BBDDF8FF%5D.png" alt="Thumbnail Build" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 2</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-3.html'" data-title="PART 3">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcOBVbiY47ZUYbGPDaOAwanIpaFMRi6LUoRnMfE3hTfGa3J461Mb3V2wNfjOVgghhLJjcqNP0YYUhYUaKKlIdPLJq51HVw84mruaWtG5dBsFn5ZA1tjORkuwBXF7qxzCa_w4uo-Kf8_W-yxB0GObSqBMfnT_jUMfDBkb7J0tl_w8aZO-K5ZPJskgSdgHs/s1920/New%20Project%204%20%5B321A8FD%5D.png" alt="Thumbnail Combo" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 3</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-4.html'" data-title="PART 4">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7CdmKRADeOiPX-ATAByg2y38sA4JRNwrLk0UxocmkRaWUQBaSgkcjFmw7w7Rsit7Ph5wXZDP4kWB62CNqCn53e02EWbRB3zmkcIRg97i5jAmdQEzQ82zNdtjC7F4lQFHNrIIR4j09buJwEdiI365iXx3rtQaxgWzUuphJsrpccg6BT-9y3EMj209mXlE/s1920/New%20Project%204%20%5B26E266D%5D.png" alt="Thumbnail Damage" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 4</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-5.html'" data-title="PART 5">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAnT8eryL_kkQfphrJVeGUKh7G7KgZE2EsATeWhzy1xbkqVpLWqACi35t47kqVJPxGph2gIJ38Ke4sE5NuWhhzXCtIh6PMxh0PYqZAKd8vTmV5hfvNOhUxmFP58xUrPfTOEcZlapZKJS_ae0SvUyzIWPV4a5wYCqMlYJn3Ag8C-Yau2IVZyUwL-vYJetY/s1920/New%20Project%204%20%5B137CEC4%5D.png" alt="Thumbnail Emblem" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 5</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-6.html'" data-title="farming">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrg8nzBxe5RxHlRTjLWYymtVzQJNPyX784I6H4v7dLmRUOVaco1ndhz5f2RzJRP5P_UDaDtOCWLBmK-a2-FkIkWaG1EP8LmCC9RtAU5RCHV-mxXrzPypBQPsc51pKdrts_fF2m4AJSGYnHdpPXp2HrOiW7wkQZbvh1tjo4fBxcO0_olM8f7-NxM__9WzQ/s1920/New%20Project%204%20%5BA8D7C27%5D.png" alt="Thumbnail Farming" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 6</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/blog-post.html'" data-title="ganking">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5FichCDS8EowrVYZ2D1Woz7i6YLe7NASMgqVYMao47BideVZJ4AujsVzGTh1q-N0Nre9mie4ytKNUPj_6K8vB4UQCEon42AkVwcTUECiVddK02mwjmvI65oBN7CYfa5-9EKbaLfwb9YxZhriP03QPrlaPJzSp9HwaLmmFeO0Zj1CpURRIoCge9gdi2Zk/s1920/New%20Project%204%20%5B9C2AC90%5D.png" alt="Thumbnail Ganking" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 7</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-8.html'" data-title="hero">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWia5jU1pqZrIdMS5uwpXP4-GDeemP8yfjzNoqG7h7JrqX1L24jm3I2Fe1qSA4Le8rMkYFpAlMRxKpBQKolVHHEOL2ahXry5apiY9YFRBUPCWI3Ie9yGOO5Jx3ky6GiDGCS2v2ybxQoRnOpl1srS7mhG0wH1BwRjEZ75eqgs2hohnzGbF0GuCd57f7xn4/s1920/New%20Project%204%20%5BB569514%5D.png" alt="Thumbnail Hero" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 8</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-9.html'" data-title="item">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgBX7MqB25OyLzlSeZ0KPhWqlFVC50qVLeEw8kwm-EVLyzw0IiQnNu8keVSos4j7b8OWTsmNd-baxYqPEnian_mEeYKlnCtB5mPgXJtvnBggV0kWxaHzQYVfICIsYottGSe2_VoZLi2-JtNAeZefR70eoPMFJX1Tw9WfPt9lZFRBKk7HnLOh3YLfUgArw/s1920/New%20Project%204%20%5BC0447CB%5D.png" alt="Thumbnail Item" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 9</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-10.html'" data-title="jungle">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIBGeg2cm71dsq7g3Ao7bm2jcM4WfF3Kqz_yVAEefNQgPJp09WMrKmAdCemWryKVKUzcnJ2NOF7fELuXBFaL02PZcG8C8eOluJ2zFoKmWwdXFMQtEHvWWZ6-WTFyAF2KNHiNdzlzwMrUuBluFn2l6iRzMvQ7M1BOnPbiqPPDo4L14q7J7nGcXZL5XNgfE/s1920/New%20Project%204%20%5BF88430E%5D.png" alt="Thumbnail Jungle" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 10</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-11.html'" data-title="Tips">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhK9b2G95y-MDj5TS1N3PeMpXI3-Ag1dRItSkX-8qjiNTDKeA_OCUIUApBTWFqqt5kkdmj8SHr2KcEfK6NJ53mJYviG9td1jf_MN8LRoTO_RTKn02kWm5sM0GEcQFb2nt9v9v6nobsgIjC5m6hG-pPdSqRdUBFe6zH9t5Zjv3m4vJ7snuNg731l1f4XZTc/s1920/New%20Project%204%20%5B31FC0DF%5D.png" alt="Thumbnail Tips" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 11</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-13.html'" data-title="PART 12">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpsXbJRJgxQngREjoOizOnHEJWFDeaB95Elw8BJu5zeV6kyoaxtH8ftjEBUQ1irMLxM0q4xS0OPQhSXHpDx3zq-3Fp5BZcHsFAcrwn5rMGO4H3mxR9Fi5P0z-37MFeUmmLlT1gy5PAhHtep20Jv6M-Qet7iwQ4dafE5jtFA9vXG5jUmTmgzaQfyNcf5Q4/s1920/New%20Project%204%20%5B59F0DAD%5D.png" alt="Thumbnail PART 12" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 12</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-13_18.html'" data-title="PART 13">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjc8AvZwJ6MyCdc_0VgYDYEKDWCrgMwYcVZry3tRjDJB6cEgtylXLBUoFKJdQmiK4gjYdZjhxGMP4pUDcRSyKtEd6yyYQvhrq5epuFu03Ut5ilXYj1uwgDX_wCSrc-DBQGDbN6VJR2oFbsQD1gcOF8XUpuRhKv7K1ZlqR9D-HMX91CzEtwpPVr0om43re0/s1920/New%20Project%204%20%5B1300DE0%5D.png" alt="Thumbnail PART 13" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 13</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-14.html'" data-title="PART 14">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLF4wYanS4FCr8JoWOoE4R8QaOfpOHT9tdNGVZyQYYiYqvVw_ZWnPeGn1FcmkdSYKkg0ebx5A2XJby9Q63tWV5-48HgUF84SIDNJ8QRbGeXc3CkPgvWi29PA1esNKXGeJt1m3GdbvCS4m1OFuBno_MI7oapA58rZG-Z-Imz1AE4EqNCZZyxNVsghybdtM/s1920/New%20Project%204%20%5BF53181C%5D.png" alt="Thumbnail PART 14" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 14</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-15.html'" data-title="PART 15">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWSlZudt1prDdk0SmXbrzNYU1dVJHJl6YqcqC6fKw5n_SMvxqownuENY793_7hDlgAhIdTxXlORmSkaJ3rDOwgGrbzTWX2_0NjdLGstbeKwR7lz7rLR1NgZzP5QuWDHw0NMRu2wAtTMAjhD1gHcgdzctg91KzhHilAWzC6c-nUEiutbbZsOnUCfNQ036c/s1920/New%20Project%204%20%5B6720071%5D.png" alt="Thumbnail PART 15" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 15</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-16.html'" data-title="PART 16">
+  <div class="thumbnail">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSWU13jmpqeMSYe81rsW7UNyW9UAyxDL04VNZUXz1_H_9x9UikQsIp4IUW_puVj46LM64LH-wtkZzcysaSvbFj7OTUlwxa3icgS19vzkntmp3KFM6ZI9JJ3RmBl1lNuOqY-pf1NKE-RITywhJKDwFD_ioa7AaHCcus4mrocQDeyGLeLEE2EQiLymNqWqE/s1920/New%20Project%204%20%5B15AEFD4%5D.png" alt="Thumbnail PART 16" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 16</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-17.html'" data-title="PART 17">
+  <div class="thumbnail">
+    <img src="https://part17" alt="Thumbnail PART 17" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 17</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-18.html'" data-title="PART 18">
+  <div class="thumbnail">
+    <img src="https://part18" alt="Thumbnail PART 18" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 18</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-19.html'" data-title="PART 19">
+  <div class="thumbnail">
+    <img src="https://part19" alt="Thumbnail PART 19" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 19</div>
+</div>
+
+<div class="card" onclick="window.location.href='https://skyylink.blogspot.com/2025/05/part-20.html'" data-title="PART 20">
+  <div class="thumbnail">
+    <img src="https://part20" alt="Thumbnail PART 20" style="width: 100%; height: auto;" />
+  </div>
+  <div class="card-footer">PART 20</div>
+</div>
+</div>
+<div class="pagination" id="pagination">
+  <button onclick="changePage(-1)">←</button>
+  <span id="pageLabel">PAGE 1</span>
+  <button onclick="changePage(1)">→</button>
+</div>
+
+  <script>
+  // Ambil container kartu dan ubah ke array
+  const container = document.getElementById('cardContainer');
+  if (container) {
+    const cards = Array.from(container.children);
+
+    // Urutkan berdasarkan angka di data-title (misal: "PART 1", "PART 2", dst)
+    cards.sort((a, b) => {
+      const extractNumber = (title) => {
+        const match = title.match(/\d+/);
+        return match ? parseInt(match[0]) : Infinity;
+      };
+      const numA = extractNumber(a.getAttribute('data-title'));
+      const numB = extractNumber(b.getAttribute('data-title'));
+      return numA - numB;
+    });
+
+    // Masukkan ulang ke dalam container
+    cards.forEach(card => container.appendChild(card));
+  }
+
+  // Pagination
+  const cardsPerPage = 10;
+  let currentPage = 1;
+
+  function showPage(page) {
+    const cards = document.querySelectorAll('.card');
+    const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+    if (page < 1) page = 1;
+    if (page > totalPages) page = totalPages;
+
+    cards.forEach((card, index) => {
+      card.style.display = (index >= (page - 1) * cardsPerPage && index < page * cardsPerPage) ? 'block' : 'none';
+    });
+
+    const label = document.getElementById('pageLabel');
+    if (label) label.textContent = `PAGE ${page}`;
+    currentPage = page;
+  }
+
+  function changePage(direction) {
+    showPage(currentPage + direction);
+  }
+
+  // Tampilkan halaman pertama saat halaman dimuat
+  document.addEventListener("DOMContentLoaded", () => {
+    showPage(currentPage);
+  });
+
+  // Toggle sidebar
+  function toggleSidebar() {
+    document.getElementById("sidebar")?.classList.toggle("open");
+  }
+
+  // Toggle search bar
+  function toggleSearch() {
+    const searchBar = document.getElementById("searchBar");
+    if (searchBar) {
+      searchBar.style.display = (searchBar.style.display === "block") ? "none" : "block";
+    }
+  }
+
+  // Pencarian
+  function searchContent() {
+    const input = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".card");
+
+    if (!input) return;
+    const keyword = input.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+      const title = card.getAttribute("data-title").toLowerCase();
+      card.style.display = title.includes(keyword) ? "block" : "none";
+    });
+  }
+
+  function handleKey(event) {
+    if (event.key === "Enter") {
+      searchContent();
+    }
+  }
+
+  // Scroll ke atas
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Pastikan fungsi tersedia global
+  window.toggleSidebar = toggleSidebar;
+  window.toggleSearch = toggleSearch;
+  window.searchContent = searchContent;
+  window.handleKey = handleKey;
+  window.scrollToTop = scrollToTop;
+  window.changePage = changePage;
+</script>
+</body>
+</html>
